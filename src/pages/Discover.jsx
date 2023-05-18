@@ -3,6 +3,7 @@ import { Error, Loader, SongCard } from '../components';
 import { genres } from '../assets/constants';
 import { useGetSongsByGenreQuery } from '../redux/services/shazamcore';
 import { selectGenreListId } from '../redux/features/playerSlice';
+import '../components/Cards.css';
 
 const Discover = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Discover = () => {
           {genres.map((genre) => <option key={genre.value} value={genre.value}>{genre.title}</option>)}
         </select>
       </div>
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+      <div className="flex flex-wrap sm:justify-start justify-center gap-8 cards">
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
