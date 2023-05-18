@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 
@@ -10,11 +10,10 @@ const AroundYou = () => {
   const [loading, setLoading] = useState(true);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByCountryQuery(country);
-
   useEffect(() => {
     axios
       .get('https://geo.ipify.org/api/v2/country?apiKey=at_b0xqnCmOZggMwyR60O3DfUrE2GGl4')
-      .then((res) => setCountry(res?.data?.location.country))
+      .then((res) => setCountry(res?.data?.location?.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, [country]);
