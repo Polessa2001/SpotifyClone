@@ -26,7 +26,7 @@ const Discover = () => {
           {genres.map((genre) => <option key={genre.value} value={genre.value}>{genre.title}</option>)}
         </select>
       </div>
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8 lg:cards">
+      <div className="flex flex-wrap sm:justify-start justify-center gap-8 cards">
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
